@@ -28,12 +28,10 @@ public class Transactions {
 
     private boolean isIssueOperation;
 
-    //Things I will write for connecting it book.
     @ManyToOne
     @JoinColumn
-    private Book book; //book entity pk will come here and become a foreign key.
+    private Book book;
 
-    //We need to connect it to the Card class.
     @ManyToOne
     @JoinColumn
     private Card card;

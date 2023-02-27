@@ -6,15 +6,6 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 
 public class AuthorEntryDto {
 
-
-    //This is just an object that will be used to take request
-    //from PostMan
-
-
-    //It will contain the parameters that we want to send from postman
-
-    //id is not here because we don't want to send it from Postman
-
     private String name;
 
     private int age;

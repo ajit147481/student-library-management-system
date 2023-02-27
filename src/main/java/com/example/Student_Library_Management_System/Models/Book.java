@@ -22,15 +22,10 @@ public class Book {
     @Enumerated(value = EnumType.STRING)
     private Genre genre;
 
-    //Book is child wrt to author
-    //Setting here the foreign key : Standard 3 steps
-
     @ManyToOne
-    @JoinColumn //Add an extra attribute of authorId (parent table PK) for the foreign key of child table
-    private Author author; //This is the parent entity we are connecting with
+    @JoinColumn
+    private Author author;
 
-
-    //Book is also child wrt Card...
     @ManyToOne
     @JoinColumn
     private Card card;

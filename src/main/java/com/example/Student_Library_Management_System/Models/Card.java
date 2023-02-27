@@ -14,36 +14,27 @@ import java.util.List;
 @Table(name="card")
 public class Card {
 
-    //Plan is to save this card in Db.
-    //Before saving I have to set its attributes : Rule 1
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;  //Its auto generated
+    private int id;
 
-    @CreationTimestamp //Auto timestamp the time when an entry is created
-    private Date createdOn; //Its auto generated
+    @CreationTimestamp
+    private Date createdOn;
 
-    @UpdateTimestamp //Sets time when an entry is updated.
-    private Date updatedOn; //Its auto generated
+    @UpdateTimestamp
+    private Date updatedOn;
 
     @Enumerated(value = EnumType.STRING)
-    private CardStatus cardStatus; //SEt this attribute
+    private CardStatus cardStatus;
 
 
     @OneToOne
     @JoinColumn
-    private Student studentVariableName; //This varible is used in the parent class.
-    // while doing the bidirectional mapping
+    private Student studentVariableName;
 
-
-    //Card is parent wrt to Book
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
     List<Book> booksIssued = new ArrayList<>();
 
-
-    //Connecting the card class to the transaction
-    //Bidireectional Mapping
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
     private List<Transactions> transactionsList = new ArrayList<>();
 

@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("author")
 public class AuthorController {
-
-    //    / is optional : you want to write you can
-    // otherwise not required
-
-
     @Autowired
     AuthorService authorService;
 

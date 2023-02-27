@@ -6,9 +6,6 @@ public class StudentUpdateMobRequestDto {
     private int id;
     private String mobNo;
 
-    //Dto's depend on the API's being called...add
-    //atributes as required.
-
     public StudentUpdateMobRequestDto() {
     }
 

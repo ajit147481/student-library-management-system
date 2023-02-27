@@ -22,9 +22,6 @@ public class Author {
     private String country;
 
     private double rating;
-
-    //This annotation I am writing in the parent class :
-    //Part of bidirectional mapping
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
     private List<Book> booksWritten;
 
