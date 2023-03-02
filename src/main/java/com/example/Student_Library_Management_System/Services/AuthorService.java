@@ -21,19 +21,7 @@ public class AuthorService {
 
 
     public String createAuthor(AuthorEntryDto authorEntryDto){
-
-
-
-        //Important step is : in the params : the object i
-        //of type DTO but the repository interacts only with entities
-
-        //Solutoion : Convert authorEntryDto ---> Author
-
-        //Created an object of type Author
         Author author = new Author();
-
-        //we are setting its attribute so that we can save
-        //correct values in the db.
         author.setName(authorEntryDto.getName());
         author.setAge(authorEntryDto.getAge());
         author.setCountry(authorEntryDto.getCountry());
@@ -46,8 +34,6 @@ public class AuthorService {
 
         Author author =  authorRepository.findById(authorId).get();
         AuthorResponseDto authorResponseDto = new AuthorResponseDto();
-        //Set its attributes.
-        //List<Book> --> List<BookResponseDto>
         List<Book> bookList = author.getBooksWritten();
 
         List<BookResponseDto> booksWrittenDto = new ArrayList<>();

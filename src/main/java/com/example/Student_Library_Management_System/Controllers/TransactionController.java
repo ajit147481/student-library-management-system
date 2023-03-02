@@ -4,6 +4,8 @@ package com.example.Student_Library_Management_System.Controllers;
 import com.example.Student_Library_Management_System.DTOs.IssueBookRequestDto;
 import com.example.Student_Library_Management_System.Services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,20 +17,20 @@ public class TransactionController {
     TransactionService transactionService;
 
     @PostMapping("issueBook")
-    public String issueBook(@RequestBody IssueBookRequestDto issueBookRequestDto){
+    public ResponseEntity<String> issueBook(@RequestBody IssueBookRequestDto issueBookRequestDto){
 
         try{
-            return transactionService.issueBook(issueBookRequestDto);
+            return new ResponseEntity<>(transactionService.issueBook(issueBookRequestDto), HttpStatus.OK);
         }catch (Exception e){
-            return e.getMessage();
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
 
     }
 
     @GetMapping("/getTxnInfo")
-    public String getTransactionEntry(@RequestParam("bookId")Integer bookId,@RequestParam
+    public ResponseEntity<String> getTransactionEntry(@RequestParam("bookId")Integer bookId,@RequestParam
             ("cardId")Integer cardId){
 
-        return transactionService.getTransactions(bookId,cardId);
+        return new ResponseEntity<>(transactionService.getTransactions(bookId,cardId),HttpStatus.OK);
     }
 }
