@@ -25,8 +25,9 @@ public class Transactions {
 
     @CreationTimestamp
     private Date transactionDate;
-
+    @Column(columnDefinition = "TINYINT(1)")
     private boolean isIssueOperation;
+
 
     @ManyToOne
     @JoinColumn

@@ -29,7 +29,7 @@ public class Book {
     @ManyToOne
     @JoinColumn
     private Card card;
-
+    @Column(columnDefinition = "TINYINT(1)")
     private boolean issued;
 
 

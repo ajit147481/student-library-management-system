@@ -5,6 +5,7 @@ import com.example.Student_Library_Management_System.DTOs.BookRequestDto;
 import com.example.Student_Library_Management_System.Models.Author;
 import com.example.Student_Library_Management_System.Models.Book;
 import com.example.Student_Library_Management_System.Repositories.AuthorRepository;
+import com.example.Student_Library_Management_System.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ import java.util.List;
 
 @Service
 public class BookService {
+    @Autowired
+    BookRepository bookRepository;
 
     @Autowired
     AuthorRepository authorRepository;
@@ -63,5 +66,9 @@ public class BookService {
 
         return "Book Added successfully";
 
+    }
+
+    public void deleteBook(int id) {
+        bookRepository.deleteById(id);
     }
 }

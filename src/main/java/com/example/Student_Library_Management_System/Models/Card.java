@@ -2,6 +2,7 @@ package com.example.Student_Library_Management_System.Models;
 
 
 import com.example.Student_Library_Management_System.Enums.CardStatus;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
