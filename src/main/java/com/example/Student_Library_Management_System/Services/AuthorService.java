@@ -47,7 +47,6 @@ public class AuthorService {
 
             booksWrittenDto.add(bookResponseDto);
         }
-        //Set attributes for authorResponse Dto
         authorResponseDto.setBooksWritten(booksWrittenDto);
         authorResponseDto.setName(author.getName());
         authorResponseDto.setAge(author.getAge());

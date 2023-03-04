@@ -21,21 +21,14 @@ public class StudentService {
     public String createStudent(Student student){
 
         Card card = new Card();
-        card.setCardStatus(CardStatus.ACTIVATED); //Card status is being set.
-        card.setStudentVariableName(student); //Foreign key attribute
-        //Filling the value of the unidirectional part.
+        card.setCardStatus(CardStatus.ACTIVATED);
+        card.setStudentVariableName(student);
 
 
-        //Lets go to the student
         student.setCard(card);
 
 
-        //If there was a unidirectional mapping : we had to save both of them them
-        //studentRepo.save () and cardRepo.save()
-        //But we are super advance and are using bidirectional : Child will automatically be saved.
-
         studentRepository.save(student);
-        //By cascading effect, child will automatically be saved (cardRepo will be saved)
 
         return "Student and Card added";
     }
@@ -53,19 +46,12 @@ public class StudentService {
 
 
 
-        //CONVERT THE DTO TO ENTITY : saved better
-
-
-
-        //First we will try to fetch originalData
         Student originalStudent = studentRepository.findById(studentReq.getId()).get();
 
-        //We will keep the other properties as it is : and only change the required parameters
 
         originalStudent.setMobNo(studentReq.getMobNo());
 
 
-        //Always entity object is being saved.
         studentRepository.save(originalStudent);
 
         return "Student has been updated successfully. ";
@@ -78,10 +64,3 @@ public class StudentService {
     }
 }
 
-/*
-    1. Existing Functions with no definition.
-
-    2. Existing function + with defining.
-
-    3. New Fu
- */
