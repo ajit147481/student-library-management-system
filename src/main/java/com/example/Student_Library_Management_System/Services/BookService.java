@@ -2,6 +2,7 @@ package com.example.Student_Library_Management_System.Services;
 
 
 import com.example.Student_Library_Management_System.DTOs.BookRequestDto;
+import com.example.Student_Library_Management_System.DTOs.BookResponseDto;
 import com.example.Student_Library_Management_System.Enums.Genre;
 import com.example.Student_Library_Management_System.Models.Author;
 import com.example.Student_Library_Management_System.Models.Book;
@@ -10,6 +11,7 @@ import com.example.Student_Library_Management_System.Repositories.BookRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,9 +48,21 @@ public class BookService {
     public void deleteBook(int id) {
         bookRepository.deleteById(id);
     }
-    public List<Book> findUsingGenre(Genre genre){
+    public List<BookResponseDto> findUsingGenre(Genre genre){
         List<Book> bookList=bookRepository.findByGenre(genre.toString());
-        return bookList;
+        List<BookResponseDto> bookResponseDtoList=new ArrayList<>();
+        for(Book book:bookList){
+
+            BookResponseDto bookResponseDto=new BookResponseDto();
+
+            bookResponseDto.setName(book.getName());
+            bookResponseDto.setPages(book.getPages());
+            bookResponseDto.setGenre(book.getGenre());
+
+            bookResponseDtoList.add(bookResponseDto);
+
+        }
+        return bookResponseDtoList;
     }
 
 }
