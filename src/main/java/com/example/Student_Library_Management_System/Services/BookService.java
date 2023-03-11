@@ -2,6 +2,7 @@ package com.example.Student_Library_Management_System.Services;
 
 
 import com.example.Student_Library_Management_System.DTOs.BookRequestDto;
+import com.example.Student_Library_Management_System.Enums.Genre;
 import com.example.Student_Library_Management_System.Models.Author;
 import com.example.Student_Library_Management_System.Models.Book;
 import com.example.Student_Library_Management_System.Repositories.AuthorRepository;
@@ -45,4 +46,9 @@ public class BookService {
     public void deleteBook(int id) {
         bookRepository.deleteById(id);
     }
+    public List<Book> findUsingGenre(Genre genre){
+        List<Book> bookList=bookRepository.findByGenre(genre.toString());
+        return bookList;
+    }
+
 }
