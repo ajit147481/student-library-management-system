@@ -16,7 +16,7 @@ public class TransactionController {
     @Autowired
     TransactionService transactionService;
 
-    @PostMapping("issueBook")
+    @PostMapping("/issueBook")
     public ResponseEntity<String> issueBook(@RequestBody IssueBookRequestDto issueBookRequestDto){
 
         try{
