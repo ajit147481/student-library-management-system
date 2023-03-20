@@ -58,7 +58,6 @@ public class BookService {
             bookResponseDto.setName(book.getName());
             bookResponseDto.setPages(book.getPages());
             bookResponseDto.setGenre(book.getGenre());
-
             bookResponseDtoList.add(bookResponseDto);
 
         }
