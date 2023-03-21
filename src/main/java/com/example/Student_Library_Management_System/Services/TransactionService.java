@@ -79,9 +79,9 @@ public class TransactionService {
         issuedBooksForCard.add(book);
         card.setBooksIssued(issuedBooksForCard);
 
-        for(Book b: issuedBooksForCard){
-            System.out.println(b.getName());
-        }
+//        for(Book b: issuedBooksForCard){
+//            System.out.println(b.getName());
+//        }
 
         List<Transactions> transactionsListForCard = card.getTransactionsList();
         transactionsListForCard.add(transaction);
